@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CSc221FinalProject">
         <activity
+            android:name=".EventEdit"
+            android:exported="false" />
+        <activity
+            android:name=".WeeklyView"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
