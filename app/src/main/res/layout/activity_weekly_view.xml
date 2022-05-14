@@ -113,14 +113,39 @@
         android:layout_weight="1"/>
 
     <Button
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Event"
-        android:textColor="@color/black"
-        android:background="@null"
+        android:text="calorie counter"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/blue"
         android:textStyle="bold"
         android:onClick="newEventAction"
-        android:textSize="18sp"
+        android:textSize="22sp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="recipe of the day"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/blue"
+        android:textStyle="bold"
+        android:onClick="newRecipeAction"
+        android:textSize="22sp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Workout of the day"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/blue"
+        android:textStyle="bold"
+        android:onClick="newWorkoutAction"
+        android:textSize="22sp"
         android:layout_gravity="center"/>
 
     <ListView

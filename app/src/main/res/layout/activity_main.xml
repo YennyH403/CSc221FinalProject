@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bgc"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -13,11 +14,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Weekly View"
-        android:textColor="@color/black"
-        android:background="@null"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/blue"
         android:onClick="weeklyAction"
-        android:textSize="18sp"/>
+        android:textSize="22sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,8 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="PREV"
-            android:textColor="@color/black"
-            android:background="@null"
+            android:textColor="?attr/tC"
+            android:background="@color/gray"
             android:textStyle="bold"
             android:onClick="previousMonthAction"
             android:textSize="18sp"/>
@@ -43,18 +43,19 @@
         android:text="April 2022"
         android:textSize="20sp"
         android:textAlignment="center"
-        android:textColor="@color/black"/>
+        android:textColor="?attr/tC"/>
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="NEXT"
-            android:textColor="@color/black"
-            android:background="@null"
+            android:textColor="?attr/tC"
+            android:background="@color/gray"
             android:textStyle="bold"
             android:onClick="nextMonthAction"
             android:textSize="18sp"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="SUN"
-            android:textColor="@color/gray"
+            android:textColor="?attr/tC"
             android:textAlignment="center"
             android:textSize="16sp"/>
         <TextView
@@ -72,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="MON"
-            android:textColor="@color/gray"
+            android:textColor="?attr/tC"
             android:textAlignment="center"
             android:textSize="16sp"/>
         <TextView
@@ -80,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="TUES"
-            android:textColor="@color/gray"
+            android:textColor="?attr/tC"
             android:textAlignment="center"
             android:textSize="16sp"/>
         <TextView
@@ -88,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="WED"
-            android:textColor="@color/gray"
+            android:textColor="?attr/tC"
             android:textAlignment="center"
             android:textSize="16sp"/>
         <TextView
@@ -96,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="THUR"
-            android:textColor="@color/gray"
+            android:textColor="?attr/tC"
             android:textAlignment="center"
             android:textSize="16sp"/>
         <TextView
@@ -104,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="FRI"
-            android:textColor="@color/gray"
+            android:textColor="?attr/tC"
             android:textAlignment="center"
             android:textSize="16sp"/>
         <TextView
@@ -112,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="SAT"
-            android:textColor="@color/gray"
+            android:textColor="?attr/tC"
             android:textAlignment="center"
             android:textSize="16sp"/>
     </LinearLayout>
@@ -120,6 +121,23 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/calendarRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="413dp" />
+
+    <TextView
+        android:id="@+id/darkModeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Light Mode/Dark Mode"
+        android:textColor="?attr/tC"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="16sp"/>
+    <Switch
+        android:id="@+id/mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
+
 
 </LinearLayout>

@@ -1,5 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.CSc221FinalProject" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="bgc">#ffffff</item>
+        <item name="tC">#000000</item>
+    </style>
+
+    <style name="DarkMode" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="bgc">#000000</item>
+        <item name="tC">#ffffff</item>
     </style>
 </resources>

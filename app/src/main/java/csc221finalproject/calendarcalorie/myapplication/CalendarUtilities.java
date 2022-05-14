@@ -11,11 +11,17 @@ import java.util.ArrayList;
 public class CalendarUtilities {
     public static LocalDate selectedDate;
 
+    /**
+     *
+     */
     public static String monthYearFromDate(LocalDate date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy");
         return date.format(formatter);
     }
 
+    /**
+     *
+     */
     public static ArrayList<LocalDate> daysInMonthArray(LocalDate date) {
         ArrayList<LocalDate> daysInMonthArray = new ArrayList<>();
         YearMonth yearMonth = YearMonth.from(date);

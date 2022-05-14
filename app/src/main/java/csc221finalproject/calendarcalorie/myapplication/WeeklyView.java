@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -54,12 +55,19 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
         setWeekView();
     }
 
-    public void newEventAction(View view) {
-    }
-
     @Override
     public void onItemClick(int position, LocalDate date) {
         CalendarUtilities.selectedDate = date;
         setWeekView();
+    }
+
+    public void newEventAction(View view) {
+        startActivity(new Intent(this, EventEdit.class));
+    }
+
+    public void newRecipeAction(View view) {
+    }
+
+    public void newWorkoutAction(View view) {
     }
 }

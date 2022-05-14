@@ -4,12 +4,15 @@ import static csc221finalproject.calendarcalorie.myapplication.CalendarUtilities
 import static csc221finalproject.calendarcalorie.myapplication.CalendarUtilities.monthYearFromDate;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,14 +25,48 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
 
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
+    private Switch dmSwitch;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.DarkMode);
+        } else {
+            setTheme(R.style.Theme_CSc221FinalProject);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initWidgets();
         CalendarUtilities.selectedDate = LocalDate.now();
         setMonthView();
+        dmSwitch = findViewById(R.id.mode);
+        textView = findViewById(R.id.darkModeText);
+
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+            dmSwitch.setChecked(true);
+        }
+        dmSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    textView.setText("Dark Mode");
+                    reset();
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    textView.setText("Light Mode");
+                    reset();
+                }
+            }
+        });
+    }
+
+    private void reset() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void initWidgets() {

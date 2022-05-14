@@ -15,6 +15,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarView>
 {
     private final ArrayList<LocalDate> days;
     private final OnItemListener onItemListener;
+
     /**
      * An array list of strings to represent the days of the month
      * */
@@ -22,6 +23,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarView>
         this.days = days;
         this.onItemListener = onItemListener;
     }
+
     @NonNull
     @Override
     /**
@@ -52,7 +54,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarView>
     @Override
     public void onBindViewHolder(@NonNull CalendarView holder, int position) {
         final LocalDate date = days.get(position);
-
         if(date == null) {
             holder.dayOfMonth.setText("");
         } else {
