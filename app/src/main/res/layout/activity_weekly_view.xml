@@ -20,7 +20,7 @@
             android:layout_weight="1"
             android:text="PREV"
             android:textColor="@color/black"
-            android:background="@null"
+            android:background="@color/gray"
             android:textStyle="bold"
             android:onClick="previousWeekAction"
             android:textSize="18sp"/>
@@ -39,7 +39,7 @@
             android:layout_weight="1"
             android:text="NEXT"
             android:textColor="@color/black"
-            android:background="@null"
+            android:background="@color/gray"
             android:textStyle="bold"
             android:onClick="nextWeekAction"
             android:textSize="18sp"/>
@@ -116,18 +116,6 @@
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="calorie counter"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/blue"
-        android:textStyle="bold"
-        android:onClick="newEventAction"
-        android:textSize="22sp"
-        android:layout_gravity="center"/>
-
-    <Button
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="recipe of the day"
         android:textColor="@color/white"
         android:backgroundTint="@color/blue"
@@ -148,9 +136,42 @@
         android:textSize="22sp"
         android:layout_gravity="center"/>
 
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keep Track of Your Calories!"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/blue"
+        android:textStyle="bold"
+        android:onClick="newEventAction"
+        android:textSize="22sp"
+        android:layout_gravity="center"/>
+
     <ListView
+        android:id="@+id/entryList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"/>
+
+    <Button
+        android:id="@+id/addIt"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Count it!"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/blue"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/totalCalorieCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@color/black"
+        android:layout_gravity="center"
+        android:textSize="22sp"/>
 
 </LinearLayout>

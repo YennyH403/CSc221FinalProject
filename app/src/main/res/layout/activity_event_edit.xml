@@ -15,16 +15,17 @@
         android:text="Food:"
         android:textSize="20sp"
         android:textAlignment="center"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:background="@color/gray"
+        android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/foodCalorie"
+        android:id="@+id/foodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="20sp"
-        android:ems="10"
-        />
+        android:ems="10" />
 
     <TextView
         android:id="@+id/calorieCount"
@@ -35,10 +36,12 @@
         android:text="Calorie Count:"
         android:textSize="20sp"
         android:textAlignment="center"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:background="@color/gray"
+        android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/foodName"
+        android:id="@+id/foodCalorie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

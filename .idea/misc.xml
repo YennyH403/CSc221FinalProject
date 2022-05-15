@@ -5,10 +5,12 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.105" />
         <entry key="app/src/main/res/layout/activity_event_edit.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_weekly_view.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2297454833984375" />
+        <entry key="app/src/main/res/layout/activity_weekly_view.xml" value="0.214337158203125" />
         <entry key="app/src/main/res/layout/calendar_cell.xml" value="0.25" />
         <entry key="app/src/main/res/layout/event_cell.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/recipe_view.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/workout_view.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -11,16 +11,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnItemListener {
 
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
+    private ListView entryList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
     private void initWidgets() {
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         monthYearText = findViewById(R.id.monthYearTextView);
+        entryList = findViewById(R.id.entryList);
     }
 
     private void setWeekView() {
@@ -43,6 +47,7 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
+        setEntryAdapter();
     }
 
     public void previousWeekAction(View view) {
@@ -61,13 +66,27 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
         setWeekView();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setEntryAdapter();
+    }
+
+    private void setEntryAdapter() {
+        ArrayList<Entries> dailyEntries = Entries.foodEntriesForDate(CalendarUtilities.selectedDate);
+        EntryAdapter entryAdapter = new EntryAdapter(getApplicationContext(), dailyEntries);
+        entryList.setAdapter(entryAdapter);
+    }
+
     public void newEventAction(View view) {
         startActivity(new Intent(this, EventEdit.class));
     }
 
     public void newRecipeAction(View view) {
+        startActivity(new Intent(this, RecipeView.class));
     }
 
     public void newWorkoutAction(View view) {
+       startActivity(new Intent(this, WorkoutView.class));
     }
 }
