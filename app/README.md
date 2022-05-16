@@ -7,5 +7,7 @@ We are building an addon feature for the calendar app that implements:
 - Recipe Suggestions
 - Workout Suggestions
 
+The calendar app was based off of a YouTube implementation tutorial.
+
 Additional Feature: Light and Dark Mode
 

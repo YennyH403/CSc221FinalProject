@@ -20,7 +20,7 @@ public class EventEdit extends AppCompatActivity {
     private TextView eventDate, eventTime, totalCalorieCount;
     private LocalTime time;
 
-// the calorie counter implementation
+// the calorie input
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +31,10 @@ public class EventEdit extends AppCompatActivity {
         eventDate.setText("Date: " + CalendarUtilities.formattedDate(CalendarUtilities.selectedDate));
         eventTime.setText("Time: " + CalendarUtilities.formattedTime(time));
 
+        // this is on the event edit, should be in the count it button
         /**
-         * Button addIt= findViewById(R.id.addIt);
-         *         addIt.setOnClickListener(new View.OnClickListener() {
+         * Button countIt= findViewById(R.id.addIt);
+         *         countIt.setOnClickListener(new View.OnClickListener() {
          *             @Override
          *             public void onClick(View view) {
          *                 addCalorieCount();
@@ -58,7 +59,7 @@ public class EventEdit extends AppCompatActivity {
         calorieCount = findViewById(R.id.foodCalorie);
         eventTime = findViewById(R.id.eventTime);
         eventDate = findViewById(R.id.eventDate);
-        totalCalorieCount = findViewById(R.id.totalCalorieCount);
+        // totalCalorieCount = findViewById(R.id.totalCalorieCount);
     }
 
     public void saveEventAction(View view) {
@@ -66,7 +67,8 @@ public class EventEdit extends AppCompatActivity {
         String entry2 = calorieCount.getText().toString();
         Entries entries1 = new Entries(entry1, entry2, CalendarUtilities.selectedDate, time);
         Entries.foodEntriesList.add(entries1);
-        // Entries.calorieEntriesList.add(entries2);
         finish();
     }
+
+
 }

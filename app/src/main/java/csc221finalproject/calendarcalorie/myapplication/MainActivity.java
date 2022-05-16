@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         dmSwitch = findViewById(R.id.mode);
         textView = findViewById(R.id.darkModeText);
 
+        // double check this switch and its if statements
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
             dmSwitch.setChecked(true);
         }

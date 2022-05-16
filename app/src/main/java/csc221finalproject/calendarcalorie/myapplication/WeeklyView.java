@@ -11,9 +11,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -24,6 +35,10 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private ListView entryList;
+    // private Button btnCount;
+
+    private Button btnRecipe, btnWorkout;
+    // private ListView recipeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +46,39 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
         setContentView(R.layout.activity_weekly_view);
         initWidgets();
         setWeekView();
+
+        btnRecipe = findViewById(R.id.btnRecipe);
+        btnWorkout = findViewById(R.id.btnWorkout);
+        // recipeView = findViewById(R.id.recipeView);
+
+        btnRecipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // RequestQueue queue = Volley.newRequestQueue(WeeklyView.this);
+                //                                String url = "https://www.metaweather.com/api/location/search/?query=london";
+                //
+                //                                JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                //                                    @Override
+                //                                    public void onResponse(JSONArray response) {
+                //                                        Toast.makeText(WeeklyView.this, response.toString(), Toast.LENGTH_SHORT).show();
+                //                                    }
+                //                                }, new Response.ErrorListener() {
+                //                                    @Override
+                //                                    public void onErrorResponse(VolleyError error) {
+                //                                        Toast.makeText(WeeklyView.this, "Something wrong", Toast.LENGTH_SHORT).show();
+                //                                    }
+                //                                });
+                //                                queue.add(request);
+                Toast.makeText(WeeklyView.this, "You clicked Recipe!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(WeeklyView.this, "You clicked Workout!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initWidgets() {
@@ -82,11 +130,4 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
         startActivity(new Intent(this, EventEdit.class));
     }
 
-    public void newRecipeAction(View view) {
-        startActivity(new Intent(this, RecipeView.class));
-    }
-
-    public void newWorkoutAction(View view) {
-       startActivity(new Intent(this, WorkoutView.class));
-    }
 }
