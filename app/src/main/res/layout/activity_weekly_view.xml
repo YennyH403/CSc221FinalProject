@@ -154,6 +154,14 @@
         android:layout_height="0dp"
         android:layout_weight="5"/>
 
+    <TextView
+        android:id="@+id/totalCalorieCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@color/black"
+        android:layout_gravity="center"
+        android:textSize="22sp"/>
+
     <Button
         android:id="@+id/addIt"
         android:layout_marginTop="20dp"
@@ -162,16 +170,9 @@
         android:text="Count it!"
         android:textColor="@color/white"
         android:backgroundTint="@color/blue"
+        android:onClick="newCountAction"
         android:textStyle="bold"
         android:textSize="22sp"
         android:layout_gravity="center"/>
-
-    <TextView
-        android:id="@+id/totalCalorieCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@color/black"
-        android:layout_gravity="center"
-        android:textSize="22sp"/>
 
 </LinearLayout>
