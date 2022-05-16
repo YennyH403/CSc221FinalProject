@@ -22,6 +22,7 @@ import java.util.List;
 public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnItemListener {
 
     private TextView monthYearText;
+    private TextView totalCount;
     private RecyclerView calendarRecyclerView;
     private ListView entryList;
 
@@ -37,6 +38,8 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         monthYearText = findViewById(R.id.monthYearTextView);
         entryList = findViewById(R.id.entryList);
+        totalCount = findViewById(R.id.totalCalorieCount);
+
     }
 
     private void setWeekView() {
@@ -80,6 +83,16 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
 
     public void newEventAction(View view) {
         startActivity(new Intent(this, EventEdit.class));
+    }
+
+    public void newCountAction(View view) {
+        double totalCalories = 0;
+        for(Entries entry : Entries.foodEntriesList) {
+            totalCalories += Double.parseDouble(entry.getName2());
+        }
+
+       totalCount.setText(String.valueOf("Total Calories " + totalCalories));
+        // here should be the code to display the changes on the screen
     }
 
     public void newRecipeAction(View view) {
