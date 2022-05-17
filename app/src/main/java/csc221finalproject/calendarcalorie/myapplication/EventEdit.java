@@ -12,15 +12,14 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 // user inputs food name and the calories associated with the food
-// will be able to display the time/date of input
+// will be able to display the time of input
 
 public class EventEdit extends AppCompatActivity {
 
     private EditText foodName, calorieCount;
-    private TextView eventDate, eventTime, totalCalorieCount;
+    private TextView eventDate, eventTime;
     private LocalTime time;
 
-// the calorie input
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,37 +30,17 @@ public class EventEdit extends AppCompatActivity {
         eventDate.setText("Date: " + CalendarUtilities.formattedDate(CalendarUtilities.selectedDate));
         eventTime.setText("Time: " + CalendarUtilities.formattedTime(time));
 
-        // this is on the event edit, should be in the count it button
-        /**
-         * Button countIt= findViewById(R.id.addIt);
-         *         countIt.setOnClickListener(new View.OnClickListener() {
-         *             @Override
-         *             public void onClick(View view) {
-         *                 addCalorieCount();
-         *             }
-         *         });
-         */
     }
 
-    /**
-     * private void addCalorieCount() {
-     *         double count = Double.valueOf(calorieCount.getText().toString());
-     *         double result = 0;
-     *         for(int i = 0; i < count; i++) {
-     *             result += count;
-     *         }
-     *         totalCalorieCount.setText("The result is: " + result);
-     *     }
-     */
-
+    // defines the layout
     private void initWidgets() {
         foodName = findViewById(R.id.foodName);
         calorieCount = findViewById(R.id.foodCalorie);
         eventTime = findViewById(R.id.eventTime);
         eventDate = findViewById(R.id.eventDate);
-        // totalCalorieCount = findViewById(R.id.totalCalorieCount);
     }
 
+    // The save button, this is where the entries are stored and entered
     public void saveEventAction(View view) {
         String entry1 = foodName.getText().toString();
         String entry2 = calorieCount.getText().toString();
@@ -69,6 +48,4 @@ public class EventEdit extends AppCompatActivity {
         Entries.foodEntriesList.add(entries1);
         finish();
     }
-
-
 }

@@ -32,13 +32,12 @@ import java.util.List;
 
 public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnItemListener {
 
+    // controls for layout
     private TextView monthYearText;
+    private TextView totalCalorieCount;
     private RecyclerView calendarRecyclerView;
     private ListView entryList;
-    // private Button btnCount;
-
     private Button btnRecipe, btnWorkout;
-    // private ListView recipeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,26 +48,11 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
 
         btnRecipe = findViewById(R.id.btnRecipe);
         btnWorkout = findViewById(R.id.btnWorkout);
-        // recipeView = findViewById(R.id.recipeView);
 
+        // Setting an on click listener to check if buttons are working
         btnRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // RequestQueue queue = Volley.newRequestQueue(WeeklyView.this);
-                //                                String url = "https://www.metaweather.com/api/location/search/?query=london";
-                //
-                //                                JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-                //                                    @Override
-                //                                    public void onResponse(JSONArray response) {
-                //                                        Toast.makeText(WeeklyView.this, response.toString(), Toast.LENGTH_SHORT).show();
-                //                                    }
-                //                                }, new Response.ErrorListener() {
-                //                                    @Override
-                //                                    public void onErrorResponse(VolleyError error) {
-                //                                        Toast.makeText(WeeklyView.this, "Something wrong", Toast.LENGTH_SHORT).show();
-                //                                    }
-                //                                });
-                //                                queue.add(request);
                 Toast.makeText(WeeklyView.this, "You clicked Recipe!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -81,10 +65,12 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
         });
     }
 
+    // defining the controls
     private void initWidgets() {
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         monthYearText = findViewById(R.id.monthYearTextView);
         entryList = findViewById(R.id.entryList);
+        totalCalorieCount = findViewById(R.id.totalCalorieCount);
     }
 
     private void setWeekView() {
@@ -108,6 +94,7 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
         setWeekView();
     }
 
+    // highlights the date
     @Override
     public void onItemClick(int position, LocalDate date) {
         CalendarUtilities.selectedDate = date;
@@ -126,8 +113,19 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
         entryList.setAdapter(entryAdapter);
     }
 
+    // goes to the event edit
     public void newEventAction(View view) {
         startActivity(new Intent(this, EventEdit.class));
+    }
+
+    // count it button action
+    public void newCountAction(View view) {
+        double totalCalories = 0;
+        for(Entries entry : Entries.foodEntriesList) {
+            totalCalories += Double.parseDouble(entry.getName2());
+        }
+    // here should be the code to display the changes on the screen
+        totalCalorieCount.setText(String.valueOf("Total Calories: " + totalCalories));
     }
 
 }

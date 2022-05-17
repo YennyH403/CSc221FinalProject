@@ -12,12 +12,16 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
+/**
+ * The EntryAdapter is used to connect the Entries together.
+ */
 public class EntryAdapter extends ArrayAdapter<Entries> {
 
     public EntryAdapter(@NonNull Context context, List<Entries> entries) {
         super(context, 0, entries);
     }
 
+    // Gets the view for the list of entries made
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         Entries entry = getItem(position);
@@ -25,8 +29,8 @@ public class EntryAdapter extends ArrayAdapter<Entries> {
         if(convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.event_cell, parent, false);
         }
-        TextView entryCell = convertView.findViewById(R.id.entryCell);
 
+        TextView entryCell = convertView.findViewById(R.id.entryCell);
         String entryTitle = entry.getName1() + " -- " + entry.getName2() + " Calories" + "\n" + "Time: " + CalendarUtilities.formattedTime(entry.getTime());
         entryCell.setText(entryTitle);
         return convertView;

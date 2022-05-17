@@ -22,20 +22,7 @@ public class Entries {
         return entries;
     }
 
-    /**
-     *  public static ArrayList<Entries> calorieEntriesForDate(LocalDate date) {
-     *         ArrayList<Entries> entries = new ArrayList<>();
-     *
-     *         // for each loop -- the entries from the calories entries, if date of the entry is equal to the date, add it to the entries
-     *         for(Entries entry : calorieEntriesList) {
-     *             if(entry.getDate().equals(date)) {
-     *                 entries.add(entry);
-     *             }
-     *         }
-     *         return entries;
-     *     }
-     */
-
+    // fix up the names and give it something more defined
     private String name1;
     private String name2;
     private LocalDate date;

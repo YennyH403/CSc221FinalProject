@@ -110,7 +110,7 @@
         android:id="@+id/calendarRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"/>
+        android:layout_weight="1"/>
 
     <Button
         android:id="@+id/btnRecipe"
@@ -124,11 +124,6 @@
         android:textSize="22sp"
         android:layout_gravity="center" />
 
-    <ListView
-        android:id="@+id/recipeView"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp" />
-
     <Button
         android:id="@+id/btnWorkout"
         android:layout_marginTop="20dp"
@@ -140,11 +135,6 @@
         android:textStyle="bold"
         android:textSize="22sp"
         android:layout_gravity="center"/>
-
-    <ListView
-        android:id="@+id/workoutView"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp" />
 
     <Button
         android:layout_marginTop="20dp"
@@ -165,17 +155,16 @@
         android:layout_weight="5"/>
 
     <Button
-        android:id="@+id/countIt"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Count it!"
+        android:onClick="newCountAction"
         android:textColor="@color/white"
         android:backgroundTint="@color/blue"
         android:textStyle="bold"
         android:textSize="22sp"
         android:layout_gravity="center"/>
-
     <TextView
         android:id="@+id/totalCalorieCount"
         android:layout_width="wrap_content"

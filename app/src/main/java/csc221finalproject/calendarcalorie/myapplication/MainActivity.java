@@ -24,12 +24,13 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
 
     private TextView monthYearText;
+    private TextView textView; // textview for the light and dark mode
     private RecyclerView calendarRecyclerView;
     private Switch dmSwitch;
-    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // sets the style for our theme
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
             setTheme(R.style.DarkMode);
         } else {
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
             dmSwitch.setChecked(true);
         }
+        // when toggled, the text is supposed to change
         dmSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         monthYearText = findViewById(R.id.monthYearTextView);
     }
 
+    // sets the month view from our calendar utilities and recyclerview
     private void setMonthView() {
         monthYearText.setText(monthYearFromDate(CalendarUtilities.selectedDate));
         ArrayList<LocalDate> daysInMonth = daysInMonthArray(CalendarUtilities.selectedDate);
@@ -85,16 +88,19 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         calendarRecyclerView.setAdapter(calendarAdapter);
     }
 
+    // onclick actions that allows us to go back to the previous month
     public void previousMonthAction(View view) {
         CalendarUtilities.selectedDate = CalendarUtilities.selectedDate.minusMonths(1);
         setMonthView();
     }
 
+    // onclick actions that allows us to go forward a month
     public void nextMonthAction(View view) {
         CalendarUtilities.selectedDate = CalendarUtilities.selectedDate.plusMonths(1);
         setMonthView();
     }
 
+    // this is what shows the highlighted date when clicked
     @Override
     public void onItemClick(int position, LocalDate date) {
         if(date != null) {
@@ -103,8 +109,8 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         }
     }
 
+    // goes to the weekly view
     public void weeklyAction(View view) {
-
         startActivity(new Intent(this, WeeklyView.class));
     }
 }

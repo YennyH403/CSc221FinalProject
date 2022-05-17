@@ -13,7 +13,7 @@ public class CalendarUtilities {
     public static LocalDate selectedDate;
 
     /**
-     *
+     * Formats the date
      */
     public static String monthYearFromDate(LocalDate date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy");
@@ -21,7 +21,8 @@ public class CalendarUtilities {
     }
 
     /**
-     *
+     * An ArrayList of the LocalDate
+     * To display the days in the month in an array
      */
     public static ArrayList<LocalDate> daysInMonthArray(LocalDate date) {
         ArrayList<LocalDate> daysInMonthArray = new ArrayList<>();
@@ -42,6 +43,7 @@ public class CalendarUtilities {
         return daysInMonthArray;
     }
 
+    // displays the days in a week in an array
     public static ArrayList<LocalDate> daysInWeekArray(LocalDate selectedDate) {
         ArrayList<LocalDate> days = new ArrayList<>();
         LocalDate current = sundayForDate(selectedDate);
