@@ -31,7 +31,7 @@ public class EntryAdapter extends ArrayAdapter<Entries> {
         }
 
         TextView entryCell = convertView.findViewById(R.id.entryCell);
-        String entryTitle = entry.getName1() + " -- " + entry.getName2() + " Calories" + "\n" + "Time: " + CalendarUtilities.formattedTime(entry.getTime());
+        String entryTitle = entry.getFoodEntry() + " -- " + entry.getCalorieEntry() + " Calories" + "\n" + "Time: " + CalendarUtilities.formattedTime(entry.getTime());
         entryCell.setText(entryTitle);
         return convertView;
     }

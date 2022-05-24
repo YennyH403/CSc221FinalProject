@@ -22,11 +22,6 @@ public class CalendarView extends RecyclerView.ViewHolder implements View.OnClic
         parentView = itemView.findViewById(R.id.parentView);
         itemView.setOnClickListener(this);
         this.days = days;
-        /*int sumCalories = 0;
-        for(Entries entry : Entries.foodEntriesList) {
-            sumCalories += Integer.parseInt(entry.getName2());
-        }
-        // display sumCalories in interface*/
     }
 
     @Override

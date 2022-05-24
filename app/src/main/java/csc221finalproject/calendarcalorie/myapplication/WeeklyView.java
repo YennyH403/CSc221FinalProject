@@ -1,6 +1,5 @@
 package csc221finalproject.calendarcalorie.myapplication;
 
-import static csc221finalproject.calendarcalorie.myapplication.CalendarUtilities.daysInMonthArray;
 import static csc221finalproject.calendarcalorie.myapplication.CalendarUtilities.daysInWeekArray;
 import static csc221finalproject.calendarcalorie.myapplication.CalendarUtilities.monthYearFromDate;
 
@@ -16,19 +15,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
 public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnItemListener {
 
@@ -49,7 +37,9 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
         btnRecipe = findViewById(R.id.btnRecipe);
         btnWorkout = findViewById(R.id.btnWorkout);
 
-        // Setting an on click listener to check if buttons are working
+        // Setting an onclick listener to check if buttons are working
+        // the idea was to create a pop up that shows a randomized recipe using the edamam API
+        // and the access the recipes database
         btnRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +47,7 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
             }
         });
 
+        // looking for a workout API that has a database of workouts
         btnWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,14 +109,15 @@ public class WeeklyView extends AppCompatActivity implements CalendarAdapter.OnI
         startActivity(new Intent(this, EventEdit.class));
     }
 
-    // count it button action
+    // This count it button counts all total entries - was supposed to reset and count new entries
+    // - in the works
+    // Count it button action
     public void newCountAction(View view) {
         double totalCalories = 0;
         for(Entries entry : Entries.foodEntriesList) {
-            totalCalories += Double.parseDouble(entry.getName2());
+            totalCalories += Double.parseDouble(entry.getCalorieEntry());
         }
     // here should be the code to display the changes on the screen
         totalCalorieCount.setText(String.valueOf("Total Calories: " + totalCalories));
     }
-
 }

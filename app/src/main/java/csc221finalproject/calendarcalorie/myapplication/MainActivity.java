@@ -45,23 +45,18 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         dmSwitch = findViewById(R.id.mode);
         textView = findViewById(R.id.darkModeText);
 
-        // double check this switch and its if statements
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
             dmSwitch.setChecked(true);
         }
-        // when toggled, the text is supposed to change
         dmSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    textView.setText("Dark Mode");
-                    reset();
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    textView.setText("Light Mode");
-                    reset();
                 }
+                reset();
             }
         });
     }

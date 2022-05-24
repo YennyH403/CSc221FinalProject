@@ -8,12 +8,12 @@ public class Entries {
 
     // returns all the save calories for the given day in a list
     public static ArrayList<Entries> foodEntriesList = new ArrayList<>();
-    // public static ArrayList<Entries> calorieEntriesList = new ArrayList<>();
 
     public static ArrayList<Entries> foodEntriesForDate(LocalDate date) {
         ArrayList<Entries> entries = new ArrayList<>();
 
-        // for each loop -- the entries from the calories entries, if date of the entry is equal to the date, add it to the entries
+        // for each loop -- the entries from the calories entries,
+        // if date of the entry is equal to the date, add it to the entries
         for(Entries entry : foodEntriesList) {
             if(entry.getDate().equals(date)) {
                 entries.add(entry);
@@ -22,37 +22,36 @@ public class Entries {
         return entries;
     }
 
-    // fix up the names and give it something more defined
-    private String name1;
-    private String name2;
+    private String foodEntry;
+    private String calorieEntry;
     private LocalDate date;
     private LocalTime time;
 
-    public Entries(String name1, String name2, LocalDate date, LocalTime time) {
-        this.name1 = name1;
-        this.name2 = name2;
+    public Entries(String foodEntry, String calorieEntry, LocalDate date, LocalTime time) {
+        this.foodEntry = foodEntry;
+        this.calorieEntry = calorieEntry;
         this.date = date;
         this.time = time;
     }
 
-    public String getName1() {
+    public String getFoodEntry() {
 
-        return name1;
+        return foodEntry;
     }
 
-    public void setName1(String name1) {
+    public void setFoodEntry(String foodEntry) {
 
-        this.name1 = name1;
+        this.foodEntry = foodEntry;
     }
 
-    public String getName2() {
+    public String getCalorieEntry() {
 
-        return name2;
+        return calorieEntry;
     }
 
-    public void setName2(String name2) {
+    public void setCalorieEntry(String calorieEntry) {
 
-        this.name2 = name2;
+        this.calorieEntry = calorieEntry;
     }
 
     public LocalDate getDate() {

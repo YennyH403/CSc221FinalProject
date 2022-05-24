@@ -32,7 +32,7 @@ public class EventEdit extends AppCompatActivity {
 
     }
 
-    // defines the layout
+    // the layout
     private void initWidgets() {
         foodName = findViewById(R.id.foodName);
         calorieCount = findViewById(R.id.foodCalorie);
@@ -42,9 +42,9 @@ public class EventEdit extends AppCompatActivity {
 
     // The save button, this is where the entries are stored and entered
     public void saveEventAction(View view) {
-        String entry1 = foodName.getText().toString();
-        String entry2 = calorieCount.getText().toString();
-        Entries entries1 = new Entries(entry1, entry2, CalendarUtilities.selectedDate, time);
+        String foodNameEntry = foodName.getText().toString();
+        String calorieCountEntry = calorieCount.getText().toString();
+        Entries entries1 = new Entries(foodNameEntry, calorieCountEntry, CalendarUtilities.selectedDate, time);
         Entries.foodEntriesList.add(entries1);
         finish();
     }
